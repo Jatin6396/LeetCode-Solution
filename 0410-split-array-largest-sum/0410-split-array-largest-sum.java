@@ -41,8 +41,8 @@ class Solution {
                 page=arr[i];
             }
             
-            if(cnt>k) return false;
+            //if(cnt>k) return false;
         }
-        return true;
+        return cnt<=k;
     }
 }
