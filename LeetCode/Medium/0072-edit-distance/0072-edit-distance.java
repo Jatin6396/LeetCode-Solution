@@ -12,7 +12,7 @@ class Solution {
       }
 
       if(ch1==ch2){
-        return helper(word1.substring(1),word2.substring(1),dp);
+        return dp[word1.length()][word2.length()]= helper(word1.substring(1),word2.substring(1),dp);
       }
       else{
         int in=helper(word1.substring(1),word2,dp);
