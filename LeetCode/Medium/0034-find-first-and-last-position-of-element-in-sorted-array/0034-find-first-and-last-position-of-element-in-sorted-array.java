@@ -1,48 +1,56 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int f_occ=first(nums,target);
-        int l_occ=last(nums,target);
-        int arr[]=new int[2];
-        arr[0]=f_occ;
-        arr[1]=l_occ;
+        int[] arr=new int[2];
+
+        arr[0]=focc(nums,target);
+        arr[1]=locc(nums,target);
         return arr;
+        
     }
-    public  int first(int[] nums,int target){
+
+     public static int locc(int[]nums,int target){
+        int ans=-1;
+
         int start=0;
         int end=nums.length-1;
-        int ans=-1;
+
         while(start<=end){
-            int mid=start+(end-start)/2;
+           int mid=start+(end-start)/2;
             if(nums[mid]==target){
                 ans=mid;
-                end=mid-1;
-
-            }else if(nums[mid]<target){
+                start=mid+1;
+            }
+            else if(nums[mid]<target){
                 start=mid+1;
 
-              }
-             else{
+            }
+            else{
                 end=mid-1;
             }
-        }return ans;
+        }
+        return ans;
     }
-    public  int last(int[] nums,int target){
-        int start=0;
-        int end=nums.length-1;
+
+    public static int focc(int[]nums,int target){
         int ans=-1;
-         while(start<=end){
+
+        int start=0;
+        int end=nums.length;
+
+        while(start<end){
             int mid=start+(end-start)/2;
             if(nums[mid]==target){
                 ans=mid;
-                start=mid+1;
-
-            }else if(nums[mid]<target){
-                start=mid+1;
-
-              }
-             else{
                 end=mid-1;
             }
-        }return ans;
+            else if(nums[mid]<target){
+                start=mid+1;
+
+            }
+            else{
+                end=mid-1;
+            }
+        }
+        return ans;
     }
 }
