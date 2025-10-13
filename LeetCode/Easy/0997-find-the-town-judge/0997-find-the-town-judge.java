@@ -1,5 +1,6 @@
 class Solution {
     public int findJudge(int n, int[][] trust) {
+        if (n == 1) return 1;
        HashSet<Integer> judge=new HashSet<>();
        HashSet<Integer> people=new HashSet<>();
        int[] trustCount = new int[n + 1]; 
