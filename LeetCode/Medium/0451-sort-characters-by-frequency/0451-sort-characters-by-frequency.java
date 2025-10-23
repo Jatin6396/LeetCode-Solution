@@ -8,14 +8,14 @@ class Solution {
         }
         List<Map.Entry<Character,Integer>>ls=new ArrayList<>(map.entrySet());
         ls.sort((a,b)->b.getValue()-a.getValue());
-        String res="";
+        StringBuffer res=new StringBuffer();
 
         for(Map.Entry<Character,Integer> i:ls){
             for(int j=0;j<i.getValue();j++){
-                res+=i.getKey();
+                res.append(i.getKey());
             }
         }
-        return res;
+        return res.toString();
 
 
     }
