@@ -6,13 +6,15 @@ class Solution {
         Stack<Character> stack2=new Stack<>();
 
         for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='#') {
-                if(!stack1.isEmpty())
-                stack1.pop();}
+           if(stack1.isEmpty() && s.charAt(i)!='#'){
+            stack1.push(s.charAt(i));
+           }
+           else if(s.charAt(i)=='#'){ if(!stack1.isEmpty())stack1.pop();
 
-            else{
-                stack1.push(s.charAt(i));
-            }
+           }
+           else{
+            stack1.push(s.charAt(i));
+           }
         }
          for(int i=0;i<t.length();i++){
             if(t.charAt(i)=='#') {
